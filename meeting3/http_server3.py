@@ -10,7 +10,7 @@ def handle_request(request_line, headers, body, client_sock):
     uri = uri[1:]  # skip "/"
     if uri == '':
         content = "\n".join(os.listdir("."))
-    elif os.path.exists(uri):
+    elif os.path.exists(uri) and os.path.isfile(uri):
         with open(uri) as f:
             content = f.read()
     else:

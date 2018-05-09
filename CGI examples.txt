@@ -1,0 +1,32 @@
+export REQUEST_METHOD='GET'
+export SCRIPT_NAME='scriptname'
+export SERVER_NAME='servername'
+export SERVER_PORT='9999'
+export SERVER_PROTOCOL='HTTP/1.1'
+export PATH_INFO='/'
+
+
+python
+>>> import subprocess
+>>> subprocess.check_output('./sinatra_example.rb')
+'Status: 200\r\nContent-Type: text/html;charset=utf-8\r\nContent-Length: 13\r\nX-XSS-Protection: 1; mode=block\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: SAMEORIGIN\r\n\r\nHello, World!'
+>>> subprocess.check_output('./flask_example.py')
+'Status: 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: 18\r\n\r\nHello from Python!'
+
+
+
+
+
+
+
+import os
+
+os.environ['REQUEST_METHOD'] = 'GET'
+os.environ['SCRIPT_NAME'] = 'scriptname'
+os.environ['SERVER_NAME'] = 'servername'
+os.environ['SERVER_PORT'] = '9999'
+os.environ['SERVER_PROTOCOL'] = 'HTTP/1.1'
+os.environ['PATH_INFO'] = '/'
+
+>>> subprocess.check_output(['/Users/hugo/.virtualenvs/webserver-workshop/bin/python', 'flask_example.py'])
+'Status: 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: 12\r\n\r\nHello world!'
