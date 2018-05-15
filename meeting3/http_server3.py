@@ -14,8 +14,11 @@ def handle_request(request_line, headers, body, client_sock):
         with open(uri) as f:
             content = f.read()
     else:
+        content = "Page not found"
         client_sock.send("HTTP/1.0 404 Not Found\r\n")
+        client_sock.send("Content-Length: {}\r\n".format(len(content)))
         client_sock.send("\r\n")
+        client_sock.send(content)
         return
     client_sock.send("HTTP/1.0 200 OK\r\n")
     client_sock.send("Content-Length: {}\r\n".format(len(content)))
