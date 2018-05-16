@@ -4,7 +4,11 @@ require 'sinatra/base'
 
 class MyApp < Sinatra::Base
     get '/' do
-        'Hello, World!'
+        'Hello from Ruby!'
+    end
+
+    post '/p' do
+        params.inspect
     end
 end
 

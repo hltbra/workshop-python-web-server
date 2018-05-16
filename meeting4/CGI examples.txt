@@ -1,3 +1,19 @@
+export SCRIPT_NAME=app.py
+export HTTP_HOST=localhost:8888
+export HTTP_USER_AGENT=hugoclient
+export SERVER_NAME=cliserver
+export SERVER_PORT=8888
+export SERVER_PROTOCOL=HTTP/1.0
+
+export REQUEST_METHOD=GET
+export PATH_INFO=/
+
+
+
+
+
+
+
 export REQUEST_METHOD='GET'
 export SCRIPT_NAME='scriptname'
 export SERVER_NAME='servername'
